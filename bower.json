@@ -1,0 +1,27 @@
+{
+  "name": "location-data",
+  "version": "0.0.1",
+  "authors": [
+    "Keith Augustsson <keith.augustsson@gmail.com>"
+  ],
+  "description": "An element for getting geolocation data from the browser.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed"
+  ],
+  "main": "location-data.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/keithaugustsson/location-data/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  }
+}
