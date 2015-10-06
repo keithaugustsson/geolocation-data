@@ -45,6 +45,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
           myEl._handlePosition({test: 'test'});
         });
+
+        test('fires location-denied event', function(done) {
+          myEl.addEventListener('location-denied', function(event) {
+            assert.equal(event.type, 'location-denied');
+            done();
+          });
+          myEl._handlePositionError({code: 1});
+        });
+
+        test('fires location-error event', function(done) {
+          myEl.addEventListener('location-error', function(event) {
+            assert.equal(event.type, 'location-error');
+            done();
+          });
+          myEl._handlePositionError({code: 2});
+        });
       });
     </script>
 
