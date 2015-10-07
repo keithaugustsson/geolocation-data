@@ -20,19 +20,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <p>An example of <code>&lt;location-data&gt;</code>:</p>
 
-    <location-data></location-data>
+    <template id="template" is="dom-bind">
+      <location-data position="{{position}}"></location-data>
 
-    <div id="result">Waiting for location...</div>
-
+      <div id="result">Waiting for location...</div>
+      <template is="dom-if" if="{{position}}">
+        <div><span>Longitude:</span> <span>{{position.coords.longitude}}</span>&deg;</div>
+        <div><span>Latitude:</span> <span>{{position.coords.latitude}}</span>&deg;</div>
+        <div><span>Accuracy:</span> <span>{{position.coords.accuracy}}</span>m</div>
+        <div><span>Altitude:</span> <span>{{position.coords.altitude}}</span></div>
+        <div><span>Heading:</span> <span>{{position.coords.heading}}</span></div>
+        <div><span>Speed:</span> <span>{{position.coords.speed}}</span></div>
+      </template>
+    </template>
     <script>
-      document.querySelector('location-data').addEventListener('location-error', function() {
-        document.querySelector('#result').innerHTML = 'Location could not be found';
-      });
-      document.querySelector('location-data').addEventListener('location-denied', function() {
-        document.querySelector('#result').innerHTML = 'Location was denied';
-      });
-      document.querySelector('location-data').addEventListener('location-received', function() {
-        document.querySelector('#result').innerHTML = 'Location found!';
+      var template = document.querySelector('#template');
+
+      template.addEventListener('dom-change', function () {
+        document.querySelector('location-data').addEventListener('location-error', function() {
+          document.querySelector('#result').innerHTML = 'Location could not be found';
+        });
+        document.querySelector('location-data').addEventListener('location-denied', function() {
+          document.querySelector('#result').innerHTML = 'Location was denied';
+        });
+        document.querySelector('location-data').addEventListener('location-received', function(position) {
+          document.querySelector('#result').innerHTML = 'Location found!';
+        });
       });
     </script>
 
