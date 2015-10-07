@@ -51,6 +51,16 @@ Example:
       },
 
       /**
+       * Watch position
+       *
+       *
+       */
+      watchPosition: {
+        type: Boolean,
+        notify: true
+      },
+
+      /**
        * Time to wait for location
        *
        *
@@ -101,19 +111,18 @@ Example:
       if(!navigator.geolocation) {
         this._handlePositionError({code: 2});
       } else {
-        options.maximumAge = this.maximumAge;
-        if(this.timeout) {
-          options.timeout = this.timeout;
+        options = {
+          maximumAge: this.maximumAge,
+          timeout: this.timeout,
+          enableHighAccuracy: !!this.enableHighAccuracy
+        };
+
+        if(!this.watchPosition) {
+          navigator.geolocation.getCurrentPosition(this._handlePosition.bind(this), this._handlePositionError.bind(this), options);
+        } else {
+          navigator.geolocation.watchPosition(this._handlePosition.bind(this), this._handlePositionError.bind(this), options);
         }
-        options.enableHighAccuracy = !!this.enableHighAccuracy;
-        navigator.geolocation.getCurrentPosition(this._handlePosition.bind(this), this._handlePositionError.bind(this), options);
       }
-    },
-
-    attached: function() {
-    },
-
-    detached: function() {
     }
   });
 
