@@ -72,12 +72,12 @@ Example:
       /**
        * Maximum age of cached position in ms
        *
-       * @default 5400000 (90 minutes)
+       * @default 60000 (10 minutes)
        */
       maximumAge: {
         type: Number,
         value: function () {
-          return 90 * 60 * 1000; // 90 minutes
+          return 10 * 60 * 1000; // 10 minutes
         }
       }
     },
