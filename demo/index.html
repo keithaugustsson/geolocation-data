@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <p>An example of <code>&lt;location-data&gt;</code>:</p>
 
     <template id="template" is="dom-bind">
-      <location-data position="{{position}}"></location-data>
+      <location-data position="{{position}}" on-location-received="handlePosition"></location-data>
 
       <div id="result">Waiting for location...</div>
       <template is="dom-if" if="{{position}}">
@@ -36,6 +36,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script>
       var template = document.querySelector('#template');
 
+      template.handlePosition = function (event) {
+        console.log('Location found!');
+        console.log(event.detail);
+      };
+      
       template.addEventListener('dom-change', function () {
         document.querySelector('location-data').addEventListener('location-error', function() {
           document.querySelector('#result').innerHTML = 'Location could not be found';
