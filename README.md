@@ -1,13 +1,13 @@
-## location-data
+## geolocation-data
 
 An element for getting geolocation data from the browser
 
 Example:
 
-    <location-data></location-data>
+    <geolocation-data></geolocation-data>
 
     The position can be accessed by binding
-    <location-data position="{{position}}"></location-data>
+    <geolocation-data position="{{position}}"></geolocation-data>
 
     or by the event location-received
-    <location-data on-location-received="handlePosition"></location-data>
+    <geolocation-data on-location-received="handlePosition"></geolocation-data>

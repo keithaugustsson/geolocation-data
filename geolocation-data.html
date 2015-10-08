@@ -14,19 +14,19 @@ An element for getting geolocation data from the browser
 
 Example:
 
-    <location-data></location-data>
+    <geolocation-data></geolocation-data>
 
     The position can be accessed by binding
-    <location-data position="{{position}}"></location-data>
+    <geolocation-data position="{{position}}"></geolocation-data>
 
     or by the event location-received
-    <location-data on-location-received="handlePosition"></location-data>
+    <geolocation-data on-location-received="handlePosition"></geolocation-data>
 
 @group Seed Elements
-@element location-data
+@element geolocation-data
 @demo demo/index.html
 -->
-<dom-module id="location-data">
+<dom-module id="geolocation-data">
   <style>
     :host {
       display: none;
@@ -35,7 +35,7 @@ Example:
 </dom-module>
 <script>
   Polymer({
-    is: 'location-data',
+    is: 'geolocation-data',
     properties: {
       /**
        * The position

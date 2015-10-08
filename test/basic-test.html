@@ -17,17 +17,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../web-component-tester/browser.js"></script>
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../location-data.html">
+    <link rel="import" href="../geolocation-data.html">
   </head>
   <body>
 
     <!-- You can use the document as a place to set up your fixtures. -->
-    <location-data></location-data>
+    <geolocation-data></geolocation-data>
 
     <script>
-      var myEl = document.querySelector('location-data');
+      var myEl = document.querySelector('geolocation-data');
 
-      suite('<location-data>', function() {
+      suite('<geolocation-data>', function() {
 
         navigator.geolocation.getCurrentPosition = function (s, e, o) {};
 

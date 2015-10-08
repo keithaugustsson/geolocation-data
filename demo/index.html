@@ -14,14 +14,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>location-data Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../location-data.html">
+    <link rel="import" href="../geolocation-data.html">
   </head>
   <body unresolved>
 
     <p>An example of <code>&lt;location-data&gt;</code>:</p>
 
     <template id="template" is="dom-bind">
-      <location-data position="{{position}}" on-location-received="handlePosition"></location-data>
+      <geolocation-data position="{{position}}" on-location-received="handlePosition"></geolocation-data>
 
       <div id="result">Waiting for location...</div>
       <template is="dom-if" if="{{position}}">
@@ -40,15 +40,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         console.log('Location found!');
         console.log(event.detail);
       };
-      
+
       template.addEventListener('dom-change', function () {
-        document.querySelector('location-data').addEventListener('location-error', function() {
+        document.querySelector('geolocation-data').addEventListener('location-error', function() {
           document.querySelector('#result').innerHTML = 'Location could not be found';
         });
-        document.querySelector('location-data').addEventListener('location-denied', function() {
+        document.querySelector('geolocation-data').addEventListener('location-denied', function() {
           document.querySelector('#result').innerHTML = 'Location was denied';
         });
-        document.querySelector('location-data').addEventListener('location-received', function(position) {
+        document.querySelector('geolocation-data').addEventListener('location-received', function(event) {
           document.querySelector('#result').innerHTML = 'Location found!';
         });
       });

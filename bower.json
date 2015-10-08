@@ -1,6 +1,6 @@
 {
-  "name": "location-data",
-  "version": "0.0.1",
+  "name": "geolocation-data",
+  "version": "1.0.0",
   "authors": [
     "Keith Augustsson <keith.augustsson@gmail.com>"
   ],
@@ -10,9 +10,9 @@
     "polymer",
     "seed"
   ],
-  "main": "location-data.html",
+  "main": "geolocation-data.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/keithaugustsson/location-data/",
+  "homepage": "https://github.com/keithaugustsson/geolocation-data/",
   "ignore": [
     "/.*",
     "/test/"
