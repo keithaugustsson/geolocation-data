@@ -6,6 +6,7 @@
   ],
   "description": "An element for getting geolocation data from the browser.",
   "keywords": [
+    "web-components",
     "web-component",
     "geolocation",
     "polymer"
