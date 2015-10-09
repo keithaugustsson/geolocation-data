@@ -1,0 +1,58 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>location-data Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../geolocation-data.html">
+  </head>
+  <body unresolved>
+
+    <p>An example of <code>&lt;location-data&gt;</code>:</p>
+
+    <template id="template" is="dom-bind">
+      <geolocation-data position="{{position}}" on-location-received="handlePosition"></geolocation-data>
+
+      <div id="result">Waiting for location...</div>
+      <template is="dom-if" if="{{position}}">
+        <div><span>Longitude:</span> <span>{{position.coords.longitude}}</span>&deg;</div>
+        <div><span>Latitude:</span> <span>{{position.coords.latitude}}</span>&deg;</div>
+        <div><span>Accuracy:</span> <span>{{position.coords.accuracy}}</span>m</div>
+        <div><span>Altitude:</span> <span>{{position.coords.altitude}}</span></div>
+        <div><span>Heading:</span> <span>{{position.coords.heading}}</span></div>
+        <div><span>Speed:</span> <span>{{position.coords.speed}}</span></div>
+      </template>
+    </template>
+    <script>
+      var template = document.querySelector('#template');
+
+      template.handlePosition = function (event) {
+        console.log('Location found!');
+        console.log(event.detail);
+      };
+
+      template.addEventListener('dom-change', function () {
+        document.querySelector('geolocation-data').addEventListener('location-error', function() {
+          document.querySelector('#result').innerHTML = 'Location could not be found';
+        });
+        document.querySelector('geolocation-data').addEventListener('location-denied', function() {
+          document.querySelector('#result').innerHTML = 'Location was denied';
+        });
+        document.querySelector('geolocation-data').addEventListener('location-received', function(event) {
+          document.querySelector('#result').innerHTML = 'Location found!';
+        });
+      });
+    </script>
+
+  </body>
+</html>

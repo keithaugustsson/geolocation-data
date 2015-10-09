@@ -1,0 +1,36 @@
+{
+  "name": "geolocation-data",
+  "authors": [
+    "Keith Augustsson <keith.augustsson@gmail.com>"
+  ],
+  "description": "An element for getting geolocation data from the browser.",
+  "keywords": [
+    "web-component",
+    "geolocation",
+    "polymer"
+  ],
+  "main": "geolocation-data.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/keithaugustsson/geolocation-data/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "_release": "f5bf2fd79f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f5bf2fd79f1f47cf87cdf92c439b6ea608137a59"
+  },
+  "_source": "git://github.com/keithaugustsson/geolocation-data.git",
+  "_target": "master",
+  "_originalSource": "keithaugustsson/geolocation-data",
+  "_direct": true
+}
