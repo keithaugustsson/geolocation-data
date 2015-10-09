@@ -7,8 +7,8 @@
   "description": "An element for getting geolocation data from the browser.",
   "keywords": [
     "web-component",
-    "polymer",
-    "seed"
+    "geolocation",
+    "polymer"
   ],
   "main": "geolocation-data.html",
   "license": "http://polymer.github.io/LICENSE.txt",
